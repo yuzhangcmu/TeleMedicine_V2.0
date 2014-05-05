@@ -1,0 +1,130 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#808080" >
+
+
+
+    <ScrollView
+        android:id="@+id/scroll_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#808080" >
+
+            <RelativeLayout
+                android:id="@+id/chat_control"
+                android:layout_width="match_parent"
+                android:layout_height="450dp"
+                android:background="#808080"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/chat_text_box"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_above="@+id/app"
+                    android:layout_below="@+id/chat_text"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    
+                    android:layout_weight="1.0"
+                    android:autoLink="all"
+                    android:background="#C0C0C0"
+                    android:scrollbars="vertical"
+                    android:textColor="#0000" />
+
+                <!-- /ScrollView -->
+
+                <EditText
+                    android:id="@+id/chat_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_alignLeft="@+id/chat_text_box"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_alignParentTop="true"
+                    android:ems="10"
+                    android:hint="Enter Message"
+                    android:imeOptions="actionSend"
+                    android:inputType="text"
+                    android:scrollbars="horizontal"
+                    android:textColor="#0000" >
+                    <requestFocus />
+                </EditText>
+
+                <TextView
+                    android:id="@+id/app"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_alignLeft="@+id/chat_text_box"
+                    android:layout_alignParentBottom="true"
+                    android:background="#C0C0C0"
+                    android:gravity="center_horizontal"
+                    android:textColor="#000000" />
+                
+            </RelativeLayout>
+       
+
+            <HorizontalScrollView
+                android:id="@+id/pscroll"
+                android:layout_width="fill_parent"
+                android:layout_height="110dp"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@id/chat_control"
+                android:layout_marginTop="30dp"
+                android:fillViewport="true"
+                android:orientation="horizontal"
+                android:scrollbarAlwaysDrawHorizontalTrack="true" >
+
+                <RelativeLayout
+                    android:id="@+id/media_control"
+                    android:layout_width="fill_parent"
+                    android:layout_height="110dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="#808080"
+                    android:orientation="vertical" >
+
+                    <RelativeLayout
+                        android:id="@+id/control_bar1"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:background="@drawable/gradient_bar"
+                        android:orientation="horizontal" >
+
+                        <Button
+                            android:id="@+id/start_call"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginLeft="57dp"
+                            android:scaleType="fitXY"
+                            android:text="Start Call" />
+
+                        <Button
+                            android:id="@+id/end_call"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginLeft="49dp"
+                            android:layout_toRightOf="@+id/start_call"
+                            android:scaleType="fitXY"
+                            android:text="End Call" />
+                       
+                    </RelativeLayout>
+
+                </RelativeLayout>
+            </HorizontalScrollView>
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

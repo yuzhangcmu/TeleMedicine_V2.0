@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="edu.cmu.smartphone.telemedicine"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="false" >
+    </supports-screens>
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+    
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    
+    <!-- added by yu zhang for notification permission. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    
+    <permission android:protectionLevel="signature"
+        android:name="edu.cmu.smartphone.telemedicine.permission.C2D_MESSAGE" />
+    <uses-permission android:name="edu.cmu.smartphone.telemedicine.permission.C2D_MESSAGE" />
+    <!--  added by yu zhang for notification permission -->
+    
+    <uses-permission android:name="android.permission.READ_CONTACTS"></uses-permission>
+    
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.RAISED_THREAD_PRIORITY" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.audio.low_latency" />
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name="TeleMedicineApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Black.NoTitleBar" >
+        <activity
+            android:name="edu.cmu.smartphone.telemedicine.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="edu.cmu.smartphone.telemedicine.AddActivity" >
+        </activity>
+        <activity android:name="edu.cmu.smartphone.telemedicine.ChatActivity" >
+        </activity>
+        <activity android:name="edu.cmu.smartphone.telemedicine.ContactActivity"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity android:name="edu.cmu.smartphone.telemedicine.InfoActivity" >
+        </activity>
+        <activity android:name="edu.cmu.smartphone.telemedicine.LoginActivity" android:launchMode="singleInstance">
+        </activity>
+        <activity android:name="edu.cmu.smartphone.telemedicine.RegisterActivity" android:launchMode="singleInstance">
+        </activity>
+        <activity android:name="edu.cmu.smartphone.telemedicine.SettingActivity" >
+        </activity>
+        <activity android:name="edu.cmu.smartphone.telemedicine.UserInfoActivity" >
+        </activity>
+        <activity android:name="edu.cmu.smartphone.telemedicine.MessageRecordsActivity" >
+        </activity>
+        <activity android:name="edu.cmu.smartphone.telemedicine.VideoActivity" android:launchMode="singleTask" android:process=":VideoProcess" android:configChanges="orientation|screenSize">
+        </activity>
+        
+        <!-- Added by Yu Zhang fro display the tabs. -->
+        <!-- add this to make the tab not rise when keyboard exit. -->
+        <activity android:name="TabWidget" 
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="adjustPan"
+            >
+            
+        </activity>
+        
+        <activity android:name="edu.cmu.smartphone.telemedicine.ChatHistoryActivity"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <!-- Added by Yu Zhang fro display the tabs. end -->
+        
+        
+        
+        <service android:name="com.parse.PushService" />
+        
+        <!--
+              yu zhang added for the notification service.
+        -->
+		<receiver android:name="com.parse.ParseBroadcastReceiver">
+		  <intent-filter>
+		    <action android:name="android.intent.action.BOOT_COMPLETED" />
+		    <action android:name="android.intent.action.USER_PRESENT" />
+		  </intent-filter>
+		</receiver>
+		
+		<!-- setup a receiver to deal with the notification. -->
+		<receiver android:name="edu.cmu.smartphone.telemedicine.MyCustomReceiver" android:exported="false">
+		  <intent-filter>
+		    <action android:name="edu.cmu.smartphone.telemedicine.UPDATE_STATUS" />
+		  </intent-filter>
+		</receiver>
+
+		<receiver android:name="edu.cmu.smartphone.telemedicine.IncomingCallReceiver" android:exported="false">
+		  <intent-filter>
+		    <action android:name="edu.cmu.smartphone.telemedicine.INCOMING_CALL" />
+		  </intent-filter>
+		</receiver>
+		
+		
+		<receiver android:name="com.parse.GcmBroadcastReceiver"
+		    android:permission="com.google.android.c2dm.permission.SEND">
+		  <intent-filter>
+		    <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+		    <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+		 
+		    <!--
+		      IMPORTANT: Change "com.parse.starter" to match your app's package name.
+		    -->
+		    <category android:name="edu.cmu.smartphone.telemedicine" />
+		  </intent-filter>
+		</receiver>
+        
+    </application>
+
+</manifest>

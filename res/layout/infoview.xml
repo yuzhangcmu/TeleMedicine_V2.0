@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageButton
+            android:id="@+id/menuInfoButton"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:contentDescription="@string/add_contact"
+            android:onClick="contactMenu"
+            android:src="@drawable/ic_action_settings" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/ic_launcher" />
+
+    <ListView
+        android:id="@+id/infoListView"
+        android:layout_width="match_parent"
+        android:layout_height="224dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="0.02" 
+        android:cacheColorHint="#00000000">
+        <!-- This is to prevent the background become black when scroll -->
+    </ListView>
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.01"
+        android:ems="10"
+        android:hint="@string/note_tm" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal" >
+        
+        <ImageButton
+            android:id="@+id/textInfoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="text"
+            android:src="@drawable/ic_action_mail"
+            android:tag="text" />
+                
+
+        <ImageButton
+            android:id="@+id/videoInfoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_action_video" />
+        
+    </LinearLayout>
+
+</LinearLayout>

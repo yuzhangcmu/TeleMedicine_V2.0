@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#ffffff"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+        </RelativeLayout>
+
+        <!-- added by yu zhang -->
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:foregroundGravity="bottom|fill_horizontal" >
+
+            <LinearLayout
+                android:id="@+id/title_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFADD8E6"
+                android:orientation="vertical" >
+
+                <EditText
+                    android:id="@+id/newpassword_editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10" />
+
+                <Button
+                    android:id="@+id/newpassword_button"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Reset password" />
+                
+                <Button
+                    android:id="@+id/logout_button"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Log out and Quit App" />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/contactSearchListView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:cacheColorHint="#00000000"
+                android:fadingEdge="none" >
+            </ListView>
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/settingTab"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <!-- deleted by by yu zhang -->
+
+        </TabWidget>
+    </LinearLayout>
+
+</TabHost>
