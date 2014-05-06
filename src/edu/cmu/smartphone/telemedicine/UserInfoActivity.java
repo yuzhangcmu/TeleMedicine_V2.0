@@ -79,7 +79,8 @@ public class UserInfoActivity extends Activity {
 			          imageCodeProject.setImageResource(R.drawable.ic_action_accept);
 			          toastView.addView(imageCodeProject, 0);
 			          toast.show();
-			          
+			    
+			    // go back to the add activity.
 			    Intent intent = new Intent(UserInfoActivity.this, AddActivity.class);
 			    UserInfoActivity.this.startActivity(intent);      
 			}

@@ -218,7 +218,6 @@ public class ContactActivity extends Activity{
     @Override
     public boolean onContextItemSelected(MenuItem item)
     {
-        //setTitle("点击了长按菜单里面的第"+item.getItemId()+"个项目"); 
         
         // get which line is pressed.
         int selectedPosition = ((AdapterContextMenuInfo) item.getMenuInfo()).position;
@@ -227,7 +226,7 @@ public class ContactActivity extends Activity{
             Contact contact = contacts.get(selectedPosition);
             String userID = contact.getUserID();
             
-            contacts.remove(selectedPosition);//选择行的位置
+            contacts.remove(selectedPosition);
             adapter.notifyDataSetChanged();
             contactsListView.invalidate();
             
@@ -237,6 +236,10 @@ public class ContactActivity extends Activity{
         }
         
         return super.onContextItemSelected(item);
+    }
+    
+    protected void onResume () {
+        super.onResume();
     }
     
     protected void onCreate(Bundle savedInstanceState) {
@@ -262,8 +265,12 @@ public class ContactActivity extends Activity{
         String userID = getIntent().getStringExtra("username");
         String message = getIntent().getStringExtra("message");
         
-        
-        if (messType != null && messType.equals("addContactRequest")) {
+        // prevent mutiply adding.
+        if (MyCustomReceiver.getNotifiyNumber() >= 1 
+                && messType != null && messType.equals("addContactRequest")) {
+            // clear the request.
+            MyCustomReceiver.setNotification(0);
+            
             // add friend request.
             addContactAlert(userID, message);
         }

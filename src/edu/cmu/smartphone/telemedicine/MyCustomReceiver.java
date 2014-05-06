@@ -19,6 +19,16 @@ import android.content.DialogInterface;
 
 public class MyCustomReceiver extends BroadcastReceiver {
     private static final String TAG = "MyCustomReceiver";
+    private static int notificationNumber = 0;
+    
+    // prevent a notification to be deal multiply times.
+    public static void setNotification(int number) {
+        notificationNumber = number;
+    }
+    
+    public static int getNotifiyNumber() {
+        return notificationNumber;
+    }
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -67,12 +77,17 @@ public class MyCustomReceiver extends BroadcastReceiver {
         // create a new activity to deal with the notification.
         Intent intent = new Intent(
                 context,
-                ContactActivity.class); 
+                // modified by yu zhang. load tab view, not the contact view.
+                TabWidget.class); 
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         
         intent.putExtra("username", userID);
         intent.putExtra("messType", "addContactRequest");
         intent.putExtra("message", message);
+        
+        // means there is a notification should be deal.
+        // modified by yu zhang, for mutiply warning.
+        setNotification(1);
         
         context.startActivity(intent);
     }

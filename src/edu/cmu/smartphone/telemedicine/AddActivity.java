@@ -45,7 +45,7 @@ public class AddActivity extends Activity {
 	    Dao_Sqlite dao = new Dao_Sqlite(AddActivity.this);
 	    
 	    if (searchText.equals(Contact.getCurrentUserID())) {
-	        // JUST FOR TEST;
+	        // JUST FOR TEST; in the release version, I can't add myself.
 	        dao.searchContactCloud(searchText);
 	        
 	        Toast toast = Toast.makeText(getApplicationContext(),

@@ -101,7 +101,7 @@ public class Dao_Sqlite extends SQLiteOpenHelper {
         LinkedList<Contact> contactList = new LinkedList<Contact>();
         
         String sql = "SELECT * FROM " + TABLE_CONTACT;
-        Log.e(LOG, sql);
+        Log.d(LOG, sql);
         
         Cursor c = myDB.rawQuery(sql, null);
         
@@ -122,7 +122,7 @@ public class Dao_Sqlite extends SQLiteOpenHelper {
     public Cursor getContactCursor() {
         String sql = "SELECT " + KEY_NAME + "," + KEY_USERID +
                 " FROM " + TABLE_CONTACT + " ORDER BY " + KEY_NAME;
-        Log.e(LOG, sql);
+        Log.d(LOG, sql);
         
         Cursor c = myDB.rawQuery(sql, null);
         return c;
@@ -132,7 +132,8 @@ public class Dao_Sqlite extends SQLiteOpenHelper {
         String sql = "SELECT " + KEY_USERID + " AS _id, " + KEY_USERID + "," + KEY_RECORD_TIME +
                 " FROM " + TABLE_RECENTCHAT + " ORDER BY " + KEY_RECORD_TIME + " DESC;";
         
-        Log.e(LOG, sql);
+        // change the level to debug, not error.
+        Log.d(LOG, sql);
         
         Cursor c = myDB.rawQuery(sql, null);
         return c;

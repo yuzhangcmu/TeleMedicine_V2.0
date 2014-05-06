@@ -19,10 +19,13 @@
     <string name="title_activity_main">OVX Example</string>
 	<string name="call_start">Enter Conference</string>
 	<string name="end_call">Exit Conference</string>
-	<string name="welcom_TM">Open</string>
+	<string name="welcom_TM">start</string>
 	<string name="title_tm">Title</string>
 	<string name="recent_message">The recent message</string>
 	<string name="time_recent_chat">recent chat time</string>
+	
+	<string name="welcome_page_picture">welcome page picture</string>
+	<string name="welcome_page_text">TeleMedicine</string>
 	
 	<color name="White">#FFFFFF</color>
 	<color name="Ivory">#FFFFF0</color>

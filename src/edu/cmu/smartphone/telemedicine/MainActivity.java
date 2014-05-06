@@ -30,8 +30,8 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				
-				ParseUser currentUser = ParseUser.getCurrentUser();
+				// no use .
+				//ParseUser currentUser = ParseUser.getCurrentUser();
 				
                 Intent intent = new Intent(MainActivity.this,
                         LoginActivity.class);

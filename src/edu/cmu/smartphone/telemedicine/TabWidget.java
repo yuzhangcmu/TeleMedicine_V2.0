@@ -18,7 +18,7 @@ public class TabWidget extends TabActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab);
-        Resources res = getResources();
+        //Resources res = getResources();
         TabHost tabHost = getTabHost();
         TabSpec spec;
         Intent intent;
@@ -33,9 +33,21 @@ public class TabWidget extends TabActivity {
         tabHost.addTab(spec);
         
         Drawable image2 = this.getResources().getDrawable(R.drawable.ic_menu_friendslist);
- 
+        
         // second tab, display the contact
-        intent = new Intent(this,ContactActivity.class);
+        intent = new Intent(this, ContactActivity.class);
+        
+        String messType = getIntent().getStringExtra("messType");
+        if (messType != null && messType.equals("addContactRequest")) {
+            // add friend request.
+            String userID = getIntent().getStringExtra("username");
+            String message = getIntent().getStringExtra("message");
+            
+            intent.putExtra("username", userID);
+            intent.putExtra("messType", messType);
+            intent.putExtra("message", message);
+        }
+        
         spec = tabHost.newTabSpec("tab2")
         .setIndicator("Contacts", image2)
         .setContent(intent);
@@ -43,7 +55,9 @@ public class TabWidget extends TabActivity {
         
         Drawable image3 = this.getResources().getDrawable(R.drawable.ic_action_settings);
         
-        // the third tab.
+        
+        
+        // the third tab, setting tab.
         intent = new Intent(this,SettingActivity.class); 
         spec = tabHost.newTabSpec("tab2")
         .setIndicator("Setting", image3)
@@ -54,6 +68,7 @@ public class TabWidget extends TabActivity {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         tabHost.setCurrentTab(1);
         
+        // added by bin feng. Just hide the chathistory tab.
         tabHost.getTabWidget().getChildAt(0).setVisibility(View.GONE);
     }
  

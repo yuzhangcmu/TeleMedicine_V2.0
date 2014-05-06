@@ -47,7 +47,8 @@ public class LoginActivity extends Activity implements DataLoadCallback{
 	    
         Contact.setCurrentUserID(username);
         
-        Dao_Sqlite dao = new Dao_Sqlite(context, username, null, 1);
+        // create the database.
+        //Dao_Sqlite dao = new Dao_Sqlite(context, username, null, 1);
 	}
 
 	@Override
@@ -101,7 +102,7 @@ public class LoginActivity extends Activity implements DataLoadCallback{
 							        dao.loadDataFromCloud(username, LoginActivity.this);
 							        
 							        // added by yu zhang. For testing.
-							        DatabaseTest.databaseChatRecordTest(LoginActivity.this);
+							        //DatabaseTest.databaseChatRecordTest(LoginActivity.this);
 							        
 							        // modified by yuzhang. wait until the new activity to be load.
 							        // this is moved to the callback function to keep a screen to the user.
@@ -124,7 +125,7 @@ public class LoginActivity extends Activity implements DataLoadCallback{
 
     @Override
     public void dataloadCallback() {
-        //Hooray! The user is logged in.
+        // Hooray! The user is logged in.
         // modified by yu zhang, display the tab view.
         Intent intent = new Intent(LoginActivity.this, TabWidget.class);
         startActivity(intent);
