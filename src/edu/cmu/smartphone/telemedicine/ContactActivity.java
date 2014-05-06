@@ -285,7 +285,8 @@ public class ContactActivity extends Activity{
         String userID = Contact.getCurrentUserID();
         
         // this is just fixed for testing. display the contact list of yuzhang
-        Dao_Sqlite dao = new Dao_Sqlite(ContactActivity.this, userID, null, 1);
+        //Dao_Sqlite dao = new Dao_Sqlite(ContactActivity.this, userID, null, 1);
+        Dao_Sqlite dao = new Dao_Sqlite(ContactActivity.this);
         
         // load the contact list of the specific user to the database.
         // only load data when login.

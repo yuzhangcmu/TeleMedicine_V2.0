@@ -64,7 +64,9 @@ public class MessageRecordsActivity extends Activity {
 		callee_email = getIntent().getStringExtra("email");
 		
 		
-		dao = new Dao_Sqlite(MessageRecordsActivity.this, Contact.getCurrentUserID(), null, 1);
+		//dao = new Dao_Sqlite(MessageRecordsActivity.this, Contact.getCurrentUserID(), null, 1);
+		// only create the database when login.
+		dao = new Dao_Sqlite(MessageRecordsActivity.this);
 		
 		chatList = new ArrayList<HashMap<String, Object>>();
 		chatListView = (ListView) findViewById(R.id.chat_list);

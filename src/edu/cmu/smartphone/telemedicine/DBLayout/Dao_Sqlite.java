@@ -19,6 +19,7 @@ import edu.cmu.smartphone.telemedicine.ContactActivity;
 import edu.cmu.smartphone.telemedicine.InfoActivity;
 import edu.cmu.smartphone.telemedicine.LoginActivity;
 import edu.cmu.smartphone.telemedicine.UserInfoActivity;
+import edu.cmu.smartphone.telemedicine.constants.Constant;
 import edu.cmu.smartphone.telemedicine.entities.ChatRecord;
 import edu.cmu.smartphone.telemedicine.entities.Contact;
 import edu.cmu.smartphone.telemedicine.entities.RecentChat;
@@ -39,9 +40,10 @@ public class Dao_Sqlite extends SQLiteOpenHelper {
     private static final String LOG = "DatabaseHelper";
  
     // Database Version
-    private static final int DATABASE_VERSION = 1;
+    // May 6, I upgrade it from 1 to 3.
+    public static final int DATABASE_VERSION = 3;
  
-    // Database name
+    // Database table name
     private static final String TABLE_CONTACT = "TableContact";
     private static final String TABLE_CHATRECORD = "TableChatRecord";
     private static final String TABLE_PATIENT = "TablePatient";
@@ -194,7 +196,7 @@ public class Dao_Sqlite extends SQLiteOpenHelper {
                     
                     // delete the local database;
                     // because may be the database is not the same.
-                    onUpgrade(myDB, 0, 0);
+                    //onUpgrade(myDB, 0, 0);
                     
                     for (ParseObject o: contactList) {
                         String name = o.getString(KEY_FULLNAME);
@@ -504,7 +506,7 @@ public class Dao_Sqlite extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int arg1, int arg2) {
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // on upgrade drop older tables
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_CONTACT);
         

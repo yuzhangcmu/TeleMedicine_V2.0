@@ -75,7 +75,9 @@ public class VideoActivity extends Activity {
 		setContentView(R.layout.videoview);
 		
 		currentUserId = Contact.getCurrentUserID();
-		dao = new Dao_Sqlite(VideoActivity.this, currentUserId, null, 1);
+		// modified by yu zhang. only call when login.
+		//dao = new Dao_Sqlite(VideoActivity.this, currentUserId, null, 1);
+		dao = new Dao_Sqlite(VideoActivity.this);
 		
 		currentUserName = ParseUser.getCurrentUser().getUsername();
 		caller_username = getIntent().getStringExtra("caller_username");

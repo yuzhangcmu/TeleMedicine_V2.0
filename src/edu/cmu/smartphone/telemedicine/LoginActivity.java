@@ -95,7 +95,7 @@ public class LoginActivity extends Activity implements DataLoadCallback{
 									login(LoginActivity.this, username);
 									
 									// this is just fixed for testing. display the contact list of yuzhang
-							        Dao_Sqlite dao = new Dao_Sqlite(LoginActivity.this, username, null, 1);
+							        Dao_Sqlite dao = new Dao_Sqlite(LoginActivity.this, username, null, Dao_Sqlite.DATABASE_VERSION);
 							        
 							        // logint from here.
 							        // load the contact list of the specific user to the database.
