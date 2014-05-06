@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -31,11 +32,20 @@ import edu.cmu.smartphone.telemedicine.entities.Contact;
 public class AddActivity extends Activity {
 
 	EditText addviewSearchEditText;
+	ImageButton backButton;
+	
+	//go back to contact view.
+	public void backToContact(View v) {
+	    //backButton = (ImageButton) findViewById(R.id.back_to_contact);
+	    Intent intent = new Intent(AddActivity.this, TabWidget.class);
+	    this.startActivity(intent);
+	}
 	
 	// the button which go to display the search result of contact.
 	public void dispSearchContactResult(View v) {
 	    
 	    addviewSearchEditText = (EditText) findViewById(R.id.addviewSearchEditText);
+	    
 	    
 	    // get the string to search. We should support search by name, userID, or email.
 	    String searchText = addviewSearchEditText.getEditableText()

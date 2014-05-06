@@ -5,39 +5,44 @@
     android:background="#ffffff"
     android:orientation="vertical" >
 
+    <ImageButton
+        android:id="@+id/back_to_contact"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/White"
+        android:src="@drawable/back031"
+        android:onClick="backToContact" />
+
     <EditText
         android:id="@+id/addviewSearchEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="54dp"
+        android:layout_below="@+id/textView1"
         android:layout_toLeftOf="@+id/button_search_contact"
         android:ems="10"
         android:hint="@android:string/search_go"
-        android:textColor="#372c24" >
+        android:textColor="#372c24" />
 
-        <requestFocus />
-    </EditText>
+    <ImageButton
+        android:id="@+id/button_search_contact"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/addviewSearchEditText"
+        android:background="@color/White"
+        android:contentDescription="@string/add_contact"
+        android:onClick="dispSearchContactResult"
+        android:src="@drawable/search31" />
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="25dp"
+        android:layout_below="@+id/back_to_contact"
         android:text="@string/search_user_hint" />
-
-    <ImageButton
-        android:id="@+id/button_search_contact"
-        android:layout_width="80dp"
-        android:layout_height="47dp"
-        android:layout_alignTop="@+id/addviewSearchEditText"
-        android:layout_alignBottom="@+id/addviewSearchEditText"
-        android:layout_alignParentRight="true"
-        android:contentDescription="@string/add_contact"
-        android:onClick="dispSearchContactResult"
-        android:src="@drawable/ic_action_search" />
 
 </RelativeLayout>

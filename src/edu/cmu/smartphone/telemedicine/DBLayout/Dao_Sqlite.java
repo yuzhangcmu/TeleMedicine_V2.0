@@ -152,8 +152,18 @@ public class Dao_Sqlite extends SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (c.moveToFirst()) {
             do {
-                String name = c.getString(c.getColumnIndex(KEY_NAME));
-                String userid = c.getString(c.getColumnIndex(KEY_USERID));
+                int colum = c.getColumnIndex(KEY_NAME);
+                if (colum < 0) {
+                    return c;
+                }
+                
+                String name = c.getString(colum);
+                
+                colum = c.getColumnIndex(KEY_USERID);
+                if (colum < 0) {
+                    return c;
+                }
+                String userid = c.getString(colum);
                 
                 Contact contact = new Contact(name, userid);
                 
@@ -183,7 +193,8 @@ public class Dao_Sqlite extends SQLiteOpenHelper {
                     Log.d("contacts", "Retrieved " + contactList.size() + " contacts");
                     
                     // delete the local database;
-//                    onUpgrade(myDB, 0, 0);
+                    // because may be the database is not the same.
+                    onUpgrade(myDB, 0, 0);
                     
                     for (ParseObject o: contactList) {
                         String name = o.getString(KEY_FULLNAME);

@@ -3,25 +3,26 @@
     android:id="@android:id/tabhost"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#ffffff" >
+    android:background="@color/White" >
      
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical"
-        android:background="#ffffff" >
+        android:background="@color/White" >
         
         <RelativeLayout
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content" >
 	            
             <ImageButton
-                android:layout_width="120dp"
+                android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:contentDescription="@string/add_contact"
                 android:onClick="goToAddContactView"
-                android:src="@drawable/ic_action_add_person" />
+                android:src="@drawable/add_contact"
+                android:background="@color/White" />
 	            
         </RelativeLayout>
         
@@ -39,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:foregroundGravity="bottom|fill_horizontal"
-            android:background="#ffffff" >
+            android:background="@color/White" >
             
 	        <LinearLayout  
 	            android:id="@+id/title_layout"  
@@ -67,14 +68,6 @@
 	          
 	    </FrameLayout>    
         <!--added by yu zhang  -->
-
-        <LinearLayout
-            android:id="@+id/settingTab"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical" 
-            android:background="#ffffff">
-        </LinearLayout>
 
         <TabWidget
             android:id="@android:id/tabs"

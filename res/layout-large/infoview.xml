@@ -24,7 +24,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginLeft="20dp"
-        android:src="@drawable/ic_launcher" />
+        android:src="@drawable/people" />
 
     <ListView
         android:id="@+id/infoListView"

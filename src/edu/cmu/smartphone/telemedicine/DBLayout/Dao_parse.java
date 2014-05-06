@@ -24,6 +24,10 @@ public class Dao_parse {
     // add a friend to cloud service.
     public void addContactCloud(Contact contact) { 
         // save a new friend to the cloud.
+        if (Contact.getCurrentUserID() == null) {
+            return;
+        }
+        
         ParseObject newFriend = new ParseObject(Contact.getCurrentUserID());
         newFriend.put(Dao_Sqlite.KEY_FRIEND_USER_NAME_CLOUD, contact.getUserID());   
         newFriend.saveInBackground();

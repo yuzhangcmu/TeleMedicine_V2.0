@@ -29,7 +29,7 @@
         android:layout_above="@+id/userinfoListView"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="21dp"
-        android:src="@drawable/ic_launcher"
+        android:src="@drawable/people"
 	    android:textColor="#372c24"  />
 
     <ImageButton
